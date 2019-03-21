@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>PrimeFaces CRUD</title>
+</h:head>
+
+<h:body>
+	<div>
+		<h2>Devuelve toda los Elementos("Peliculas") de la BD</h2>
+		<p:dataTable var="Pelicula" value="#{peliculaService.getAll()}">
+
+			<p:column headerText="Id">
+				<h:outputText value="#{Pelicula.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{Pelicula.nombre}" />
+			</p:column>
+			<p:column headerText="Anio">
+				<h:outputText value="#{Pelicula.anio}" />
+			</p:column>
+			<p:column headerText="Premios">
+				<h:outputText value="#{Pelicula.premios}" />
+			</p:column>
+
+		</p:dataTable>
+	</div>
+	
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	
+		<div>
+		<h2>Busca elemento("Pelicula") en la BD</h2>
+		
+		<h:form>
+		<h3>Introduzca Id para Pelicula: </h3>
+		<h:panelGrid columns="1">
+			<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="id"></h:inputText>
+			<br></br>
+			<br></br>
+		<p:commandButton actionListener="#{basicView.buscar()}" value="Enviar" update="tablania" ></p:commandButton>
+		</h:panelGrid>
+		</h:form>
+		<p:dataTable id="tablania" var="Pelicula" value="#{basicView.peliculas}">
+			<p:column headerText="Id">
+				<h:outputText value="#{Pelicula.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{Pelicula.nombre}" />
+			</p:column>
+			<p:column headerText="Anio">
+				<h:outputText value="#{Pelicula.anio}" />
+			</p:column>
+			<p:column headerText="Premios">
+				<h:outputText value="#{Pelicula.premios}" />
+			</p:column>
+		</p:dataTable>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	
+	<div>
+		<h2>Insertar nuevo elemento("Pelicula") en la BD</h2>
+		
+		<h:form>
+		<h3>Introduzca Id para Pelicula: </h3>
+		<h:panelGrid columns="1">
+			<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="id"></h:inputText>
+			<h:outputLabel for="nombre">Nombre Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.nombre}" label="Ingrese nombre Pelicula" required="true" id="nombre"></h:inputText>
+			<h:outputLabel for="anio">Anio Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.anio}" label="Ingrese anio Pelicula" required="true" id="anio"></h:inputText>
+			<h:outputLabel for="premios">Premios Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.premios}" label="Ingrese premios Pelicula" required="true" id="premios"></h:inputText>
+			<br></br>
+			<br></br>
+			<p:commandButton actionListener="#{basicView.buscar()}" value="Enviar"></p:commandButton>
+		</h:panelGrid>
+		</h:form>
+		<p:dataTable var="Pelicula" value="#{basicView.peliculas}">
+			<p:column headerText="Id">
+				<h:outputText value="#{Pelicula.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{Pelicula.nombre}" />
+			</p:column>
+			<p:column headerText="Anio">
+				<h:outputText value="#{Pelicula.anio}" />
+			</p:column>
+			<p:column headerText="Premios">
+				<h:outputText value="#{Pelicula.premios}" />
+			</p:column>
+		</p:dataTable>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	
+
+	
+	<div>
+		<h2>Borra elemento("Pelicula") de la BD</h2>
+		<h:form>
+		<h3>Introduzca Id para Borrar Pelicula: </h3>
+		<h:panelGrid columns="1">
+			<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
+			<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="id"></h:inputText>
+			<br></br>
+			<br></br>
+		<p:commandButton actionListener="#{basicView.borraPeli()}" value="Enviar" update="tablaDel"></p:commandButton>
+		</h:panelGrid>
+		</h:form>
+		<p:dataTable id="tablaDel" var="Pelicula" value="#{basicView.peliculas}">
+
+			<p:column headerText="Id">
+				<h:outputText value="#{Pelicula.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{Pelicula.nombre}" />
+			</p:column>
+			<p:column headerText="Anio">
+				<h:outputText value="#{Pelicula.anio}" />
+			</p:column>
+			<p:column headerText="Premios">
+				<h:outputText value="#{Pelicula.premios}" />
+			</p:column>
+
+		</p:dataTable>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	
+	
+
+	<div>
+		<h2>Actualiza elemento("Pelicula") de la BD</h2>
+		<h:form>
+		<h3>Introduzca Id, Nombre, Anio y Premios para  Insertar Pelicula: </h3>
+		<h:panelGrid columns="1">
+			<h:outputLabel for="pId">Id Pelicula: </h:outputLabel>
+			<h:inputText value="#{Pelicula.pid}" id="pId"></h:inputText>
+			<br></br>
+			<h:outputLabel for="pNombre">Nombre Pelicula: </h:outputLabel>
+			<h:inputText value="#{Pelicula.pnombre}" id="pNombre"></h:inputText>
+			<br></br>
+			<h:outputLabel for="pAnio">Anio Pelicula: </h:outputLabel>
+			<h:inputText value="#{Pelicula.panio}" id="pAnio"></h:inputText>
+			<br></br>
+			<h:outputLabel for="pPremios">Premios Pelicula: </h:outputLabel>
+			<h:inputText value="#{Pelicula.ppremio}" id="pPremio"></h:inputText>
+			<br></br>
+		<h:commandButton action="viewdetails" value="Submit"></h:commandButton>
+		</h:panelGrid>
+		</h:form>
+
+		<p:dataTable var="Pelicula" value="#{ControladorRest.peliServi}">
+
+			<p:column headerText="Id">
+				<h:outputText value="#{Pelicula.id}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{Pelicula.nombre}" />
+			</p:column>
+			<p:column headerText="Anio">
+				<h:outputText value="#{Pelicula.anio}" />
+			</p:column>
+			<p:column headerText="Premios">
+				<h:outputText value="#{Pelicula.premios}" />
+			</p:column>
+
+		</p:dataTable>
+	</div>
+	
+
+	
+
+
+</h:body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+
