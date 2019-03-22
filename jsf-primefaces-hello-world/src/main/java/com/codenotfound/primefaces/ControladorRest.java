@@ -49,9 +49,9 @@ public class ControladorRest {
 	
 	
 	@DeleteMapping("/Pelicula/Delete/{id}")		//Metodo para borrar elementos(Peliculas) por Id
-	public Pelicula borrarPelicula(@PathVariable long id){
-		Pelicula pelicula = peliServi.borraPelicula(id);
-		return pelicula;
+	public List<PeliculaDTO> borrarPelicula(@PathVariable long id){
+		peliServi.borraPelicula(id);
+		return peliServi.getAll();
 	}
 	
 	
