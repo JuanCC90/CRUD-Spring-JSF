@@ -78,7 +78,8 @@ public class BasicView implements Serializable{
 	
 	
 	public void borraPeli() {
-		serviPeli.borraPelicula(id);
+		pelisRepo.deleteById(id);
+		pelisRepo.findAll();
 	}
 	
 	public void agregar() {
@@ -87,9 +88,13 @@ public class BasicView implements Serializable{
 		peli.setAnio(anio);
 		peli.setNombre(nombre);
 		peli.setPremios(premios);
+		serviPeli.setPelicula(peli);
 		peliculas = new ArrayList<>();
-		peliculas.add(peli);
-		serviPeli.getAll();
+		peliculas.addAll(serviPeli.getAll());
+
+	
+		
+		
 	}
 
 	
