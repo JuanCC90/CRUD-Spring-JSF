@@ -93,12 +93,11 @@ public class BasicView implements Serializable{
 	}
 	
 	
-	public List<PeliculaDTO> borraPeli() {
+	public void borraPeli() {
 		peliculaTmp = new ArrayList<>();
 		rt = new RestTemplate();
-		ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/Delete"+id, PeliculaDTO.class);
-		peliculaTmp.add(res.getBody());
-		return peliculaTmp;
+		rt.delete("http://localhost:8080/Pelicula/Delete"+id);
+		
 	}
 	
 	public void agregar() {
