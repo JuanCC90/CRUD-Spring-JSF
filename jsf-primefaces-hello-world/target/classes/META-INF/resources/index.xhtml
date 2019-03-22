@@ -106,7 +106,6 @@
 	<br></br>
 	<br></br>
 
-
 	<div>
 		<h2>Insertar nuevo elemento("Pelicula") en la BD</h2>
 
@@ -151,7 +150,6 @@
 	<br></br>
 	<br></br>
 
-  
 	<div>
 		<h2>Actualiza elemento("Pelicula") de la BD</h2>
 		<h:form>
@@ -173,9 +171,7 @@
 				<p:commandButton actionListener="#{basicView.actualiza()}" value="Enviar" update="tablaAc"></p:commandButton>
 			</h:panelGrid>
 		</h:form>
-
 		<p:dataTable var="Pelicula" value="#{basicView.peliculas}" update="tablaAc">
-
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
 			</p:column>
@@ -188,7 +184,6 @@
 			<p:column headerText="Premios">
 				<h:outputText value="#{Pelicula.premios}" />
 			</p:column>
-
 		</p:dataTable>
 	</div>
 
