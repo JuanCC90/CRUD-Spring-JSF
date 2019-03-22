@@ -49,7 +49,7 @@
 			</h:panelGrid>
 		</h:form>
 		<p:dataTable id="tablania" var="Pelicula"
-			value="#{basicView.peliculas}">
+			value="#{basicView.getPeliculaTmp()}">
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
 			</p:column>
@@ -159,19 +159,19 @@
 				<h:outputLabel for="Id">Id Pelicula: </h:outputLabel>
 				<h:inputText value="#{basicView.id}" id="Id"></h:inputText>
 				<br></br>
-				<h:outputLabel for="pNombre">Nombre Pelicula: </h:outputLabel>
+				<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
 				<h:inputText value="#{basicView.nombre}" id="Nombre"></h:inputText>
 				<br></br>
 				<h:outputLabel for="Anio">Anio Pelicula: </h:outputLabel>
 				<h:inputText value="#{basicView.anio}" id="Anio"></h:inputText>
 				<br></br>
 				<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
-				<h:inputText value="#{basicView.premio}" id="Premio"></h:inputText>
+				<h:inputText value="#{basicView.premios}" id="Premios"></h:inputText>
 				<br></br>
 				<p:commandButton actionListener="#{basicView.actualiza()}" value="Enviar" update="tablaAc"></p:commandButton>
 			</h:panelGrid>
 		</h:form>
-		<p:dataTable var="Pelicula" value="#{basicView.peliculas}" update="tablaAc">
+		<p:dataTable var="Pelicula" value="#{basicView.peliculas}" id="tablaAc">
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
 			</p:column>

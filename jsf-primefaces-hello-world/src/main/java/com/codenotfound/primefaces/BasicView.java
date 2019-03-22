@@ -7,11 +7,14 @@ import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
+
+import lombok.Data;
 
 @ManagedBean
 @ViewScoped
+@Data
 public class BasicView implements Serializable{
 	
 	private long id;
@@ -20,14 +23,20 @@ public class BasicView implements Serializable{
 	private long premios;
 	
 	private List<PeliculaDTO> peliculas;
+	private List<PeliculaDTO> peliculaTmp;
+	
 	private PeliculaRepository pelisRepo;
 	private PeliculaDTO pelicula;
-	
+
 	@Autowired
 	private PeliculaService serviPeli;
 	
 	public BasicView() {
 		
+	}
+	
+	public List<PeliculaDTO> getPeliculaTmp(){
+		return this.peliculaTmp;
 	}
 	
 	public List<PeliculaDTO> getPeliculas(){
@@ -72,11 +81,10 @@ public class BasicView implements Serializable{
 	}
 	
 	
-	public List<PeliculaDTO> buscar() {
-		peliculas = new ArrayList<>();
+	public void buscar() {
+		peliculaTmp = new ArrayList<>();
 		PeliculaDTO dto = serviPeli.buscar(id);
-		peliculas.add(dto);
-		return peliculas;
+		peliculaTmp.add(dto);
 	}
 	
 	
@@ -105,6 +113,8 @@ public class BasicView implements Serializable{
 		serviPeli.actualizaPelicula(peli, id);
 		peliculas=new ArrayList<>();
 		peliculas.addAll(serviPeli.getAll());
+		
+		RestTemplate es = new RestTemplate();
 	}
 	
 	
