@@ -36,7 +36,7 @@ public class BasicView implements Serializable{
 	}
 	
 	public List<PeliculaDTO> getPeliculaTmp(){
-		return this.peliculaTmp;
+		return this.peliculaTmp;	
 	}
 	
 	public List<PeliculaDTO> getPeliculas(){
