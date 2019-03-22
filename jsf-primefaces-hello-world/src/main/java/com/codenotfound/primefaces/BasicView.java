@@ -8,6 +8,7 @@ import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.Data;
@@ -31,9 +32,12 @@ public class BasicView implements Serializable{
 	@Autowired
 	private PeliculaService serviPeli;
 	
+	RestTemplate rt;
+	
 	public BasicView() {
 		
 	}
+	
 	
 	public List<PeliculaDTO> getPeliculaTmp(){
 		return this.peliculaTmp;	
@@ -83,8 +87,9 @@ public class BasicView implements Serializable{
 	
 	public void buscar() {
 		peliculaTmp = new ArrayList<>();
-		PeliculaDTO dto = serviPeli.buscar(id);
-		peliculaTmp.add(dto);
+		rt = new RestTemplate();
+		ResponseEntity<PeliculaDTO> res =  rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
+		peliculaTmp.add(res.getBody());
 	}
 	
 	
@@ -114,7 +119,6 @@ public class BasicView implements Serializable{
 		peliculas=new ArrayList<>();
 		peliculas.addAll(serviPeli.getAll());
 		
-		RestTemplate es = new RestTemplate();
 	}
 	
 	
