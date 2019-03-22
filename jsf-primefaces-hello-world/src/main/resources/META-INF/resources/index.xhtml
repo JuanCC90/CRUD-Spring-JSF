@@ -118,10 +118,10 @@
 			<h:inputText value="#{basicView.premios}" label="Ingrese premios Pelicula" required="true" id="premios"></h:inputText>
 			<br></br>
 			<br></br>
-			<p:commandButton actionListener="#{basicView.agregar()}" value="Enviar"></p:commandButton>
+			<p:commandButton actionListener="#{basicView.agregar()}" value="Enviar" update="tablaIn"></p:commandButton>
 		</h:panelGrid>
 		</h:form>
-		<p:dataTable var="Pelicula" value="#{basicView.peliculas}">
+		<p:dataTable id="tablaIn" var="Pelicula" value="#{basicView.peliculas}">
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
 			</p:column>

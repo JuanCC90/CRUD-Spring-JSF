@@ -79,12 +79,17 @@ public class BasicView implements Serializable{
 	
 	public void borraPeli() {
 		serviPeli.borraPelicula(id);
-		peliculas=new ArrayList<>();
-		List<PeliculaDTO> dto = serviPeli.getAll();
 	}
 	
 	public void agregar() {
-
+		PeliculaDTO peli=new PeliculaDTO();
+		peli.setId(id);
+		peli.setAnio(anio);
+		peli.setNombre(nombre);
+		peli.setPremios(premios);
+		peliculas = new ArrayList<>();
+		peliculas.add(peli);
+		serviPeli.getAll();
 	}
 
 	
