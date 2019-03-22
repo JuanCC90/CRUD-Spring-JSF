@@ -66,15 +66,9 @@ public class PeliculaService {
 		return peliculas;
 	}
 
-	public List<PeliculaDTO> borraPelicula(long id) {
-		ModelMapper mapper = new ModelMapper();
+	public void borraPelicula(long id) {
 		pelisRepo.deleteById(id);
-		List<PeliculaDTO> peliculas = new ArrayList<>();
-		for (Pelicula p : pelisRepo.findAll()) {
-			PeliculaDTO dto = mapper.map(p, PeliculaDTO.class);
-			peliculas.add(dto);
-		}
-		return peliculas;
+		
 	}
 	
 	
