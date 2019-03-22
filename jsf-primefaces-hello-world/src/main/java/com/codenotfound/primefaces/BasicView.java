@@ -21,6 +21,7 @@ public class BasicView implements Serializable{
 	
 	private List<PeliculaDTO> peliculas;
 	private PeliculaRepository pelisRepo;
+	private PeliculaDTO pelicula;
 	
 	@Autowired
 	private PeliculaService serviPeli;
@@ -30,6 +31,7 @@ public class BasicView implements Serializable{
 	}
 	
 	public List<PeliculaDTO> getPeliculas(){
+		peliculas = serviPeli.getAll();
 		return peliculas;
 	}
 	
@@ -70,16 +72,17 @@ public class BasicView implements Serializable{
 	}
 	
 	
-	public void  buscar() {
+	public List<PeliculaDTO> buscar() {
 		peliculas = new ArrayList<>();
 		PeliculaDTO dto = serviPeli.buscar(id);
 		peliculas.add(dto);
+		return peliculas;
 	}
 	
 	
-	public void borraPeli() {
-		pelisRepo.deleteById(id);
-		pelisRepo.findAll();
+	public List<PeliculaDTO> borraPeli() {
+		peliculas = serviPeli.borraPelicula(id);
+		return peliculas;
 	}
 	
 	public void agregar() {
@@ -91,12 +94,18 @@ public class BasicView implements Serializable{
 		serviPeli.setPelicula(peli);
 		peliculas = new ArrayList<>();
 		peliculas.addAll(serviPeli.getAll());
-
-	
-		
-		
 	}
 
+	public void actualiza() {
+		Pelicula peli=new Pelicula();
+		peli.setId(id);
+		peli.setNombre(nombre);
+		peli.setAnio(anio);
+		peli.setPremios(premios);
+		serviPeli.actualizaPelicula(peli, id);
+		peliculas=new ArrayList<>();
+		peliculas.addAll(serviPeli.getAll());
+	}
 	
 	
 	

@@ -18,3 +18,9 @@ insert into pelicula (id, nombre, anio, premios) values (9, 'batman begins', '20
 
 insert into pelicula (id, nombre, anio, premios) values (10, 'django desencadenado', '2015', '2');
 
+insert into pelicula(id, nombre, anio, premios) values (11, 'el reino de los cielos','2010','2');
+
+insert into pelicula(id, nombre, anio, premios) values (12, 'origen', '2012','1');
+
+insert into pelicula(id, nombre, anio, premios) values (13, 'erase una vez en hollywood','2019','1');
+

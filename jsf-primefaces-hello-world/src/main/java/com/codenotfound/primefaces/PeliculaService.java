@@ -35,6 +35,7 @@ public class PeliculaService {
 		ModelMapper mapper = new ModelMapper();
 		Pelicula peli = mapper.map(pelicula, Pelicula.class);
 		pelisRepo.save(peli);
+		
 		List<PeliculaDTO> peliculas = new ArrayList<>();
 		for (Pelicula p : pelisRepo.findAll()) {
 			PeliculaDTO dto = mapper.map(p, PeliculaDTO.class);
