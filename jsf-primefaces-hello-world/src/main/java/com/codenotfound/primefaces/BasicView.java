@@ -107,7 +107,7 @@ public class BasicView implements Serializable{
 		rt.delete("http://localhost:8080/Pelicula/Delete"+id);
 	}
 	
-	@RequestMapping(value="/Pelicula/post", method = RequestMethod.POST)
+
 	public void agregar() {
 		/*
 		PeliculaDTO peli=new PeliculaDTO();
@@ -129,9 +129,9 @@ public class BasicView implements Serializable{
 		
 
 		rt = new RestTemplate();
-		rt.postForEntity("http://localhost:8080/Pelicula/post", pelicula, PeliculaDTO.class);
 		
-		
+		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
+		rt.postForObject("http://localhost:8080/Pelicula/post", request, PeliculaDTO[].class);
 	}
 
 	public void actualiza() {
@@ -150,8 +150,10 @@ public class BasicView implements Serializable{
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
+		
 		rt = new RestTemplate();
-		rt.put("http://localhost:8080/Pelicula/put/"+id, PeliculaDTO.class);
+		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
+		rt.put("http://localhost:8080/Pelicula/put/"+id,request, PeliculaDTO[].class);
 		
 	}
 	
