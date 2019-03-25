@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	<h:outputStylesheet library="css" name="estilo.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="css/estilo.css"></h:outputStylesheet>
 <h:head>
 	<title>Proyecto Prueba CRUD</title>
 </h:head>
@@ -35,58 +35,64 @@
 
 				<p:commandButton type="button" value="create" icon="fa fa-plus" onclick="PF('create').show();" />
 				<p:dialog header="Create Dialog" widgetVar="create" minHeight="20">
+					<h:form>
 					<h:panelGrid columns="1">
 
 						<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.id}" label="Ingrese nombre Pelicula" required="true" id="id"></h:inputText>
+						<h:inputText value="#{basicView.id}" label="Ingrese nombre Pelicula" required="true" id="idCrea"></h:inputText>
 						
 						<h:outputLabel for="nombre">Nombre Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.nombre}" label="Ingrese nombre Pelicula" required="true" id="nombre"></h:inputText>
+						<h:inputText value="#{basicView.nombre}" label="Ingrese nombre Pelicula" required="true" id="nombreCrea"></h:inputText>
 						
 						<h:outputLabel for="anio">Anio Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.anio}" label="Ingrese anio Pelicula" required="true" id="anio"></h:inputText>
+						<h:inputText value="#{basicView.anio}" label="Ingrese anio Pelicula" required="true" id="anioCrea"></h:inputText>
 						
 						<h:outputLabel for="premios">Premios Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.premios}" label="Ingrese premios Pelicula" required="true" id="premios"></h:inputText>
+						<h:inputText value="#{basicView.premios}" label="Ingrese premios Pelicula" required="true" id="premiosCrea"></h:inputText>
 
 						<p:commandButton actionListener="#{basicView.agregar()}" value="Enviar" update="table"></p:commandButton>
 					</h:panelGrid>
+					</h:form>
 				</p:dialog>
 
 
 
 				<p:commandButton type="button" value="edit" icon="fa fa-fw fa-edit" onclick="PF('edit').show();" />
 				<p:dialog header="Edit Dialog" widgetVar="edit" minHeight="20">
+				<h:form>
 					<h:panelGrid columns="1">
 					
 						<h:outputLabel for="Id">Id Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.id}" id="Id"></h:inputText>
+						<h:inputText value="#{basicView.id}" id="IdEdita"></h:inputText>
 						
 						<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.nombre}" id="Nombre"></h:inputText>
+						<h:inputText value="#{basicView.nombre}" id="NombreEdita"></h:inputText>
 						
 						<h:outputLabel for="Anio">Anio Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.anio}" id="Anio"></h:inputText>
+						<h:inputText value="#{basicView.anio}" id="AnioEdita"></h:inputText>
 						
 						<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.premios}" id="Premios"></h:inputText>
+						<h:inputText value="#{basicView.premios}" id="PremiosEdita"></h:inputText>
 						
 						<p:commandButton actionListener="#{basicView.actualiza()}" value="Enviar" update="table"></p:commandButton>
 					</h:panelGrid>
+				</h:form>
 				</p:dialog>
 				
 				
 
 				<p:commandButton type="button" value="delete" icon="fa fa-fw fa-remove" onclick="PF('delete').show();" />
 				<p:dialog header="Delete Dialog" widgetVar="delete" minHeight="20">
+					<h:form>
 					<h:panelGrid columns="1">
 					
 						<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="id"></h:inputText>
+						<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="idBorra"></h:inputText>
 						
 						<p:commandButton actionListener="#{basicView.borraPeli()}" value="Enviar" update="table"></p:commandButton>
 					
 					</h:panelGrid>
+					</h:form>
 				</p:dialog>			
 			</p:column>
 			

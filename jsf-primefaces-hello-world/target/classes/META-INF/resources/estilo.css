@@ -4,8 +4,11 @@
 	text-align:center;
 }
 
-
-#titulo{
+.tablatest{
+	color: green;
+	
+}
+#titulito{
 	text-align:center;
 	background-color:green;
 }

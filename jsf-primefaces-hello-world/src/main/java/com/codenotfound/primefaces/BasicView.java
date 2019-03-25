@@ -8,7 +8,10 @@ import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.Data;
@@ -114,7 +117,11 @@ public class BasicView implements Serializable{
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
+		
+
 		rt = new RestTemplate();
+		
+		
 		rt.postForEntity("http://localhost:8080/Pelicula/post", pelicula, PeliculaDTO.class);
 	}
 
