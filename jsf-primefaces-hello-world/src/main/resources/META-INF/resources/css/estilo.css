@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+#table{
+	text-align:center;
+}
+
+#cabecera{
+	text-align:center;
+	background-color:green;
+}
+
+#titulo{
+	text-align:center;
+	background-color:green;
+}
