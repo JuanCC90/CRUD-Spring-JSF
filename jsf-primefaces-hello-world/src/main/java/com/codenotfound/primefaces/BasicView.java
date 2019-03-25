@@ -2,6 +2,7 @@ package com.codenotfound.primefaces;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
@@ -9,10 +10,15 @@ import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
+
 
 import lombok.Data;
 
@@ -101,6 +107,7 @@ public class BasicView implements Serializable{
 		rt.delete("http://localhost:8080/Pelicula/Delete"+id);
 	}
 	
+	@RequestMapping(value="/Pelicula/post", method = RequestMethod.POST)
 	public void agregar() {
 		/*
 		PeliculaDTO peli=new PeliculaDTO();
@@ -119,10 +126,12 @@ public class BasicView implements Serializable{
 		pelicula.setPremios(premios);
 		
 
+		
+
 		rt = new RestTemplate();
-		
-		
 		rt.postForEntity("http://localhost:8080/Pelicula/post", pelicula, PeliculaDTO.class);
+		
+		
 	}
 
 	public void actualiza() {
