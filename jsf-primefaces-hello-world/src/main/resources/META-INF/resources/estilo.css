@@ -1,14 +1,39 @@
 @charset "ISO-8859-1";
 
-#table{
-	text-align:center;
+#table {
+	text-align: center;
 }
 
-.tablatest{
-	color: green;
+#imagen {
+	text-align: center;
+	background-color: lavender;
+	font-family: fantasy;
+	font-size: x-large;
+	background: url(logo.png) top left no-repeat;
+	width: 100px;
+	height: 100px;
+	margin: 0px;
+	padding: 0px;
+	background-size: 80%;
+}
+
+body {
+	background: rgba(252, 175, 161, 1);
+}
+
+/*
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+*/
+#botones {
+	width: 50px;
+	margin-left: 50%;
 	
 }
-#titulito{
-	text-align:center;
-	background-color:green;
+
+#titulo{
+	width: 110px;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }

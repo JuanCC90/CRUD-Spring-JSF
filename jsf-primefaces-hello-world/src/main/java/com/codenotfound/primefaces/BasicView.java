@@ -33,7 +33,6 @@ public class BasicView implements Serializable{
 	private long premios;
 	
 	private List<PeliculaDTO> peliculas;
-	private List<PeliculaDTO> peliculaTmp;
 	
 	private PeliculaRepository pelisRepo;
 	private PeliculaDTO pelicula;
@@ -47,13 +46,7 @@ public class BasicView implements Serializable{
 		
 	}
 	
-	
-	public List<PeliculaDTO> getPeliculaTmp(){
-		return this.peliculaTmp;	
-	}
-	
 	public List<PeliculaDTO> getPeliculas(){
-		peliculas = serviPeli.getAll();
 		return peliculas;
 	}
 	
@@ -95,16 +88,18 @@ public class BasicView implements Serializable{
 	
 	
 	public void buscar() {
-		peliculaTmp = new ArrayList<>();
+		peliculas = new ArrayList<>();
 		rt = new RestTemplate();
 		ResponseEntity<PeliculaDTO> res =  rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
-		peliculaTmp.add(res.getBody());
+		peliculas.add(res.getBody());
 	}
 	
 	
-	public void borraPeli() {
+	public void borraPeli(long id) {
+		serviPeli.borraPelicula(id);
 		rt = new RestTemplate();
 		rt.delete("http://localhost:8080/Pelicula/Delete/"+id);
+		peliculas.addAll(serviPeli.getAll());
 	}
 	
 
@@ -125,9 +120,6 @@ public class BasicView implements Serializable{
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
 		
-
-		
-
 		rt = new RestTemplate();
 		
 		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
