@@ -34,7 +34,9 @@
 
 			<!-- Columna Con Opciones Para Crear, Actualizar y Borrar -->
 			<p:column headerText="Options">
-
+				
+				
+				<!-- Boton Para Crear Nuevo Elemento Por Id, Nombre, Anio y Premios -->
 				<p:commandButton type="button" value="create" icon="fa fa-plus" onclick="PF('create').show();" />
 				<p:dialog header="Create Dialog" widgetVar="create" minHeight="20">
 					<h:form>
@@ -58,7 +60,7 @@
 				</p:dialog>
 
 
-
+				<!-- Boton Para Editar Elemento por Id, Nombre, Anio y Premios -->
 				<p:commandButton type="button" value="edit" icon="fa fa-fw fa-edit" onclick="PF('edit').show();" />
 				<p:dialog header="Edit Dialog" widgetVar="edit" minHeight="20">
 				<h:form>
@@ -82,7 +84,7 @@
 				</p:dialog>
 				
 				
-
+				<!-- Boton Para Borrar Elemento por Id -->
 				<p:commandButton type="button" value="delete" icon="fa fa-fw fa-remove" onclick="PF('delete').show();" />
 				<p:dialog header="Delete Dialog" widgetVar="delete" minHeight="20">
 					<h:form>
@@ -91,8 +93,22 @@
 						<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
 						<h:inputText value="#{basicView.id}" label="Ingrese id Pelicula" required="true" id="idBorra"></h:inputText>
 						
+						<p:growl id="message" showDetail="true" />			
+						<p:commandButton value="destruir" action="#{dialogView.destroy}" update="message">
+							<p:confirm header="Confirmation" message="Estas Seguro?" icon="pi pi-exclamation-triangle" />
+						</p:commandButton>
+						
 						<p:commandButton actionListener="#{basicView.borraPeli()}" value="Enviar" update="table"></p:commandButton>
-					
+						
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+							<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+						</p:confirmDialog>
+						
+						
+						
+						
+						
 					</h:panelGrid>
 					</h:form>
 				</p:dialog>			
@@ -100,6 +116,10 @@
 			
 			
 			
+			
+			
+			
+			<!-- Botones Para Pasar Pagina Adelante y Atras-->
 			<f:facet name="paginatorTopLeft">
 				<p:commandButton type="button" icon="pi pi-refresh" />
 			</f:facet>
