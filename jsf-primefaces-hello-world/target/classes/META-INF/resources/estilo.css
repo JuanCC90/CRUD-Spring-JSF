@@ -5,10 +5,7 @@
 }
 
 #imagen {
-	text-align: center;
-	background-color: lavender;
-	font-family: fantasy;
-	font-size: x-large;
+
 	background: url(logo.png) top left no-repeat;
 	width: 100px;
 	height: 100px;
@@ -21,11 +18,6 @@ body {
 	background: rgba(252, 175, 161, 1);
 }
 
-/*
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-*/
 #botones {
 	width: 50px;
 	margin-left: 50%;
@@ -33,7 +25,10 @@ body {
 }
 
 #titulo{
-	width: 110px;
-	margin-left: 50%;
+	width: 50px;
+	margin-left: 20%;
 	transform: translateX(-50%);
+	text-align: center;	
+	font-family: fantasy;
+	font-size: x-large;
 }

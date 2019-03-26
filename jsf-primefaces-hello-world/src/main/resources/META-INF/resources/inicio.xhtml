@@ -10,9 +10,8 @@
 	<link href="estilo.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-	<div id="imagen">
-		<div id="titulo">FUNCIONES CRUD</div>
-	</div>
+	<div id="imagen"></div>
+	<div id="titulo">FUNCIONES CRUD</div>
 	<br></br>
 
 
@@ -47,9 +46,6 @@
 				<p:dialog header="Edit Dialog" widgetVar="edit" minHeight="20">
 				<h:form>
 					<h:panelGrid columns="1">
-					
-						<h:outputLabel for="Id">Id Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.id}" id="IdEdita"></h:inputText>
 						
 						<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
 						<h:inputText value="#{basicView.nombre}" id="NombreEdita"></h:inputText>
@@ -60,7 +56,7 @@
 						<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
 						<h:inputText value="#{basicView.premios}" id="PremiosEdita"></h:inputText>
 						
-						<p:commandButton actionListener="#{basicView.actualiza()}" value="Enviar" update="table"></p:commandButton>
+						<p:commandButton actionListener="#{basicView.actualiza(Pelicula.nombre,Pelicula.anio,Pelicula.premios)}" value="Enviar" update="table"></p:commandButton>
 					</h:panelGrid>
 				</h:form>
 				</p:dialog>
