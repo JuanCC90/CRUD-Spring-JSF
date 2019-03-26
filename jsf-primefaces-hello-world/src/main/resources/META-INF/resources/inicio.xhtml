@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h:outputStylesheet library="css" name="css/estilo.css"></h:outputStylesheet>
 <h:head>
 	<title>Proyecto Prueba CRUD</title>
@@ -15,7 +16,8 @@
 	<div>
 		<!-- Tabla Principal Que Carga Todo El Contenido Guardado -->
 		<p:dataTable id="table" var="Pelicula"
-			value="#{basicView.getPeliculas()}">
+			value="#{basicView.getPeliculas()}" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} 
+			{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10">
 
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
@@ -95,6 +97,16 @@
 					</h:form>
 				</p:dialog>			
 			</p:column>
+			
+			
+			
+			<f:facet name="paginatorTopLeft">
+				<p:commandButton type="button" icon="pi pi-refresh" />
+			</f:facet>
+			
+			<f:facet name="paginatorBottomRight">
+				<p:commandButton type="button" icon="pi pi-cloud-upload" />
+			</f:facet>
 			
 		</p:dataTable>
 	</div>

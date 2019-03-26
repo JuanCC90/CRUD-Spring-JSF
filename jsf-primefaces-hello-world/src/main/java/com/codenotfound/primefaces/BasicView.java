@@ -104,7 +104,7 @@ public class BasicView implements Serializable{
 	
 	public void borraPeli() {
 		rt = new RestTemplate();
-		rt.delete("http://localhost:8080/Pelicula/Delete"+id);
+		rt.delete("http://localhost:8080/Pelicula/Delete/"+id);
 	}
 	
 
