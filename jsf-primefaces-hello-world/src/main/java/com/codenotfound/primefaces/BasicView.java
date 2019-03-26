@@ -130,7 +130,7 @@ public class BasicView implements Serializable{
 		return peliculas;
 	}
 
-	public List<PeliculaDTO> actualiza(String nombre, String anio, long premios) {
+	public List<PeliculaDTO> actualiza(long id) {
 		/*
 		Pelicula peli=new Pelicula();
 		peli.setId(id);

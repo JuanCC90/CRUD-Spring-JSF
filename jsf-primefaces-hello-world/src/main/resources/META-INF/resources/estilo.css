@@ -25,10 +25,7 @@ body {
 }
 
 #titulo{
-	width: 50px;
-	margin-left: 20%;
-	transform: translateX(-50%);
+	width: 1400px;
 	text-align: center;	
-	font-family: fantasy;
-	font-size: x-large;
+	font-family: arial;
 }
