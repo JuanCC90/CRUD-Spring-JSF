@@ -95,13 +95,6 @@ public class BasicView implements Serializable{
 	}
 	
 	
-	public List<PeliculaDTO> borraPeli(long id) {
-		peliculas = new ArrayList<>();
-		rt = new RestTemplate();
-		rt.delete("http://localhost:8080/Pelicula/Delete/"+id);
-		peliculas.addAll(serviPeli.getAll());
-		return peliculas;
-	}
 	
 
 	public List<PeliculaDTO> agregar() {
@@ -129,6 +122,16 @@ public class BasicView implements Serializable{
 		peliculas.addAll(serviPeli.getAll());
 		return peliculas;
 	}
+	
+	
+	public List<PeliculaDTO> borraPeli(long id) {
+		peliculas = new ArrayList<>();
+		rt = new RestTemplate();
+		rt.delete("http://localhost:8080/Pelicula/Delete/"+id);
+		peliculas.addAll(serviPeli.getAll());
+		return peliculas;
+	}
+	
 
 	public List<PeliculaDTO> actualiza(long id) {
 		/*
