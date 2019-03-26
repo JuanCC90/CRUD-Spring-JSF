@@ -96,6 +96,7 @@ public class BasicView implements Serializable{
 	
 	
 	
+	
 
 	public List<PeliculaDTO> agregar() {
 		/*
@@ -159,7 +160,13 @@ public class BasicView implements Serializable{
 		
 	}
 	
-	
+	public void recuperaInfo(long id) {
+		pelicula = new PeliculaDTO();
+		pelicula = serviPeli.buscar(id);
+		this.nombre=pelicula.getNombre();
+		this.premios=pelicula.getPremios();
+		this.anio=pelicula.getAnio();
+	}
 	
 	
 

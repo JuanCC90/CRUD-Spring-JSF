@@ -40,39 +40,37 @@
 			<!-- Columna Con Opciones Para Crear, Actualizar y Borrar -->
 			<p:column headerText="Options">
 				
-				
 				<!-- Boton Para Editar Elemento por Id, Nombre, Anio y Premios -->
-				<p:commandButton type="button" value="edit" icon="fa fa-fw fa-edit" onclick="PF('edit').show();" />
-				<p:dialog header="Edit Dialog" widgetVar="edit" minHeight="20">
 				<h:form>
-					<h:panelGrid columns="1">
-						
-						<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
-						<h:inputText value="#{Pelicula.nombre}" id="NombreEdita"></h:inputText>
-						
-						<h:outputLabel for="Anio">Anio Pelicula: </h:outputLabel>
-						<h:inputText value="#{Pelicula.anio}" id="AnioEdita"></h:inputText>
-						
-						<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
-						<h:inputText value="#{Pelicula.premios}" id="PremiosEdita"></h:inputText>
-						
-						<p:commandButton actionListener="#{basicView.actualiza(Pelicula.id)}" value="Enviar" update="table"></p:commandButton>
-					</h:panelGrid>
+					<p:commandButton value="edit" icon="fa fa-fw fa-edit" update="dialogEdicion" actionListener="#{basicView.recuperaInfo(Pelicula.id)}" oncomplete="PF('edit').show();" />
+					<p:dialog header="Edit Dialog" id="dialogEdicion" widgetVar="edit" minHeight="20">
+						<h:panelGrid columns="1">
+							
+							<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
+							<h:inputText value="#{basicView.nombre}" id="NombreEdita"></h:inputText>
+							
+							<h:outputLabel for="Anio">Anio Pelicula: </h:outputLabel>
+							<h:inputText value="#{basicView.anio}" id="AnioEdita"></h:inputText>
+							
+							<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
+							<h:inputText value="#{basicView.premios}" id="PremiosEdita"></h:inputText>
+							
+							<p:commandButton actionListener="#{basicView.actualiza(Pelicula.id)}" value="Enviar" update="table"></p:commandButton>
+						</h:panelGrid>
+					</p:dialog>
+				
+				
+				
+					<!-- Boton Para Borrar Elemento por Id -->
+					<p:commandButton value="delete" actionListener="#{basicView.borraPeli(Pelicula.id)}" update="table" icon="fa fa-fw fa-remove">
+						<p:confirm header="Confirmation" message="Estas Seguro?" icon="pi pi-exclamation-triangle" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"  />
+						<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+					</p:confirmDialog>
 				</h:form>
-				</p:dialog>
-				
-				
-				<!-- Boton Para Borrar Elemento por Id -->
-				<p:commandButton type="button" value="delete" actionListener="#{basicView.borraPeli(Pelicula.id)}" update="table" icon="fa fa-fw fa-remove" onclick="PF('delete').show();" >
-				<p:confirm header="Confirmation" message="Estas Seguro?" icon="pi pi-exclamation-triangle" />
-				</p:commandButton>
-				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-							<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"  />
-							<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-						</p:confirmDialog>
-				<p:dialog header="Delete Dialog" widgetVar="delete" minHeight="20">Elemento Borrado	</p:dialog>			
 			</p:column>
-			
 			
 			
 			
