@@ -48,13 +48,13 @@
 					<h:panelGrid columns="1">
 						
 						<h:outputLabel for="Nombre">Nombre Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.nombre}" id="NombreEdita"></h:inputText>
+						<h:inputText value="#{Pelicula.nombre}" id="NombreEdita"></h:inputText>
 						
 						<h:outputLabel for="Anio">Anio Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.anio}" id="AnioEdita"></h:inputText>
+						<h:inputText value="#{Pelicula.anio}" id="AnioEdita"></h:inputText>
 						
 						<h:outputLabel for="Premios">Premios Pelicula: </h:outputLabel>
-						<h:inputText value="#{basicView.premios}" id="PremiosEdita"></h:inputText>
+						<h:inputText value="#{Pelicula.premios}" id="PremiosEdita"></h:inputText>
 						
 						<p:commandButton actionListener="#{basicView.actualiza(Pelicula.id)}" value="Enviar" update="table"></p:commandButton>
 					</h:panelGrid>
