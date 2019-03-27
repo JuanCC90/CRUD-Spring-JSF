@@ -33,6 +33,7 @@ public class Pelicula implements Serializable {
 	}
 	
 	public Pelicula(String nombre, String anio, long premios) {
+		super();
 		this.nombre=nombre;
 		this.anio=anio;
 		this.premios=premios;

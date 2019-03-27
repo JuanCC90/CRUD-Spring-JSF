@@ -96,10 +96,6 @@ public class BasicView implements Serializable{
 		peliculas.add(res.getBody());
 	}
 	
-	
-	
-	
-
 	public List<PeliculaDTO> agregar() {
 		/*
 		PeliculaDTO peli=new PeliculaDTO();
@@ -115,9 +111,7 @@ public class BasicView implements Serializable{
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
-		
 		rt = new RestTemplate();
-		
 		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
 		rt.postForObject("http://localhost:8080/Pelicula/post", request, PeliculaDTO[].class);
 		peliculas = new ArrayList<>();
@@ -150,15 +144,14 @@ public class BasicView implements Serializable{
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
-		
 		rt = new RestTemplate();
 		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
 		rt.put("http://localhost:8080/Pelicula/put/"+id,request, PeliculaDTO[].class);
 		peliculas = new ArrayList<>();
 		peliculas.addAll(serviPeli.getAll());
-		return peliculas;
-		
+		return peliculas;		
 	}
+	
 	
 	public void recuperaInfo(long id) {
 		pelicula = new PeliculaDTO();

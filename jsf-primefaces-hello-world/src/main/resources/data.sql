@@ -30,3 +30,7 @@ insert into pelicula(nombre, anio, premios) values ('Predator', '1990', '1');
 
 insert into pelicula(nombre, anio, premios) values ('Mad Max : Fury Road', '2016', '1');
 
+insert into pelicula(nombre, anio, premios) values ('Atrapame Si Puedes', '2000', '1');
+
+insert into pelicula(nombre, anio, premios) values ('Big JuanCarlos 6', '2014', '1');
+
