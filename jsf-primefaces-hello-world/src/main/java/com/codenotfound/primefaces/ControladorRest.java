@@ -40,9 +40,8 @@ public class ControladorRest {
 	
 	
 	@PutMapping("/Pelicula/put/{id}")	//Metodo para actualizar elemento(Pelicula) por Id
-	public List<PeliculaDTO> actualizarPeli(@RequestBody Pelicula nuevaPeli, @PathVariable Long id){
-		List<PeliculaDTO> peliculas = peliServi.actualizaPelicula(nuevaPeli, id);
-		return peliculas;
+	public PeliculaDTO actualizarPeli(@RequestBody PeliculaDTO nuevaPeli, @PathVariable Long id){
+		return peliServi.actualizaPelicula(nuevaPeli, id);
 	}
 	
 	

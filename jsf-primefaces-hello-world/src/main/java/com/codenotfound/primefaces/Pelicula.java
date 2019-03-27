@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @ManagedBean
 @SessionScoped
@@ -19,8 +20,11 @@ public class Pelicula implements Serializable {
 	
 	//Entorno:
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", updatable=false, nullable=false)
+	/*
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_generator")
+	@SequenceGenerator(name="id_generator", sequenceName = "id_generator_seq", initialValue=50, allocationSize=1)
+	@Column(name="id", nullable=false)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nombre;
 	private String anio;
@@ -43,6 +47,10 @@ public class Pelicula implements Serializable {
 	
 	public long getId() {
 		return this.id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

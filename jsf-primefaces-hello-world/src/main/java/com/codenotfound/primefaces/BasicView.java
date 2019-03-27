@@ -31,7 +31,7 @@ import lombok.Data;
 @Data
 public class BasicView implements Serializable{
 	
-	@Id
+	
 	private long id;
 	private String nombre;
 	private String anio;
@@ -69,6 +69,10 @@ public class BasicView implements Serializable{
 	
 	public long getId() {
 		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	
@@ -146,7 +150,8 @@ public class BasicView implements Serializable{
 		pelicula.setPremios(premios);
 		rt = new RestTemplate();
 		HttpEntity<PeliculaDTO> request = new HttpEntity<>(pelicula);
-		rt.put("http://localhost:8080/Pelicula/put/"+id,request, PeliculaDTO[].class);
+		rt.put("http://localhost:8080/Pelicula/put/"+id,request, PeliculaDTO.class);
+		
 		peliculas = new ArrayList<>();
 		peliculas.addAll(serviPeli.getAll());
 		return peliculas;		

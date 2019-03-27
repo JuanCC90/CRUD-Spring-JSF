@@ -85,7 +85,7 @@
 
 					<!-- Boton Para Borrar Elemento por Id -->
 					
-					<p:commandButton value="Borrar" type="button" actionListener="#{basicView.borraPeli(Pelicula.id)}" update="table" icon="fa fa-trash">
+					<p:commandButton value="Borrar" type="submit" actionListener="#{basicView.borraPeli(Pelicula.id)}" update="table" icon="fa fa-trash">
 						<p:confirm header="Confirmation" message="Estas Seguro?" icon="pi pi-exclamation-triangle" />
 					</p:commandButton>
 					

@@ -52,17 +52,12 @@ public class PeliculaService {
 		return dto;
 	}
 
-	public List<PeliculaDTO> actualizaPelicula(Pelicula nuevaPeli, long id) {
+	public PeliculaDTO actualizaPelicula(PeliculaDTO nuevaPeli, long id) {
 		ModelMapper mapper = new ModelMapper();
-		List<PeliculaDTO> peliculas = new ArrayList<>();
-		for (Pelicula p : pelisRepo.findAll()) {
-			if (p.getId() == id) {
-				pelisRepo.save(nuevaPeli);
-				PeliculaDTO dto = mapper.map(p, PeliculaDTO.class);
-				peliculas.add(dto);
-			}
-		}
-		return peliculas;
+
+		nuevaPeli.setId(id);
+		Pelicula entidad = mapper.map(nuevaPeli, Pelicula.class);
+		return mapper.map(pelisRepo.save(entidad), PeliculaDTO.class);
 	}
 
 	public void borraPelicula(long id) {
