@@ -7,6 +7,10 @@ import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -27,6 +31,7 @@ import lombok.Data;
 @Data
 public class BasicView implements Serializable{
 	
+	@Id
 	private long id;
 	private String nombre;
 	private String anio;
@@ -66,9 +71,6 @@ public class BasicView implements Serializable{
 		return id;
 	}
 	
-	public void setId(long id) {
-		this.id=id;
-	}
 	
 	public String getAnio() {
 		return anio;
@@ -110,7 +112,6 @@ public class BasicView implements Serializable{
 		peliculas.addAll(serviPeli.getAll());
 		*/
 		pelicula=new PeliculaDTO();
-		pelicula.setId(id);
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);
@@ -146,7 +147,6 @@ public class BasicView implements Serializable{
 		peliculas.addAll(serviPeli.getAll());
 		*/
 		pelicula = new PeliculaDTO();
-		pelicula.setId(id);
 		pelicula.setNombre(nombre);
 		pelicula.setAnio(anio);
 		pelicula.setPremios(premios);

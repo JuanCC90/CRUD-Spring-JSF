@@ -14,20 +14,29 @@
 </h:head>
 <h:body>
 	<div id="imagen"></div>
+	
+	<br></br>
+	<br></br>
+	<ul id="menu">
+		<li><a href="#">Inicio</a></li>
+		<li><a href="#">Servicios</a></li>
+		<li><a href="#">Productos</a></li>
+		<li><a href="#">Socios</a></li>
+		<li><a href="#">Sobre Nosotros</a></li>
+	
+	</ul>
+	<br></br>
+	<br></br>
 	<div id="titulo">
 		<h2>FUNCIONES CRUD</h2>
 	</div>
-	<br></br>
 
 
 	<div>
 		<!-- Tabla Principal Que Carga Todo El Contenido Guardado -->
 
-		<p:dataTable id="table" var="Pelicula"
-			value="#{basicView.getPeliculas()}" rows="10" paginator="true"
-			paginatorTemplate="{CurrentPageReport} {FirstPageLink} 
-			{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			rowsPerPageTemplate="5,10">
+		<p:dataTable id="table" var="Pelicula" value="#{basicView.getPeliculas()}" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} 
+			{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
 			<p:column headerText="Id">
 				<h:outputText value="#{Pelicula.id}" />
@@ -44,7 +53,7 @@
 
 
 
-			<!-- Columna Con Opciones Para Crear, Actualizar y Borrar -->
+			<!-- Columna Con Opciones Para Actualizar y Borrar -->
 			<p:column headerText="Options">
 
 				<!-- Boton Para Editar Elemento por Id, Nombre, Anio y Premios -->
@@ -75,24 +84,18 @@
 
 
 					<!-- Boton Para Borrar Elemento por Id -->
-					<p:commandButton value="Borrar"
-						actionListener="#{basicView.borraPeli(Pelicula.id)}"
-						update="table" icon="fa fa-fw fa-remove">
-						<p:confirm header="Confirmation" message="Estas Seguro?"
-							icon="pi pi-exclamation-triangle" />
+					
+					<p:commandButton value="Borrar" type="button" actionListener="#{basicView.borraPeli(Pelicula.id)}" update="table" icon="fa fa-trash">
+						<p:confirm header="Confirmation" message="Estas Seguro?" icon="pi pi-exclamation-triangle" />
 					</p:commandButton>
+					
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Yes" type="button"
-							styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-						<p:commandButton value="No" type="button"
-							styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+						<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+						<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
 					</p:confirmDialog>
+					
 				</h:form>
 			</p:column>
-
-
-
-
 
 			<!-- Botones Para Pasar Pagina Adelante y Atras-->
 			<f:facet name="paginatorTopLeft">
@@ -106,6 +109,8 @@
 		</p:dataTable>
 	</div>
 	
+	
+	
 	<br></br>
 	<br></br>
 	<br></br>
@@ -116,10 +121,6 @@
 		<p:dialog header="Create Dialog" widgetVar="create" minHeight="20">
 			<h:form>
 				<h:panelGrid columns="1">
-
-					<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
-					<h:inputText value="#{basicView.id}"
-						label="Ingrese nombre Pelicula" required="true" id="idCrea"></h:inputText>
 
 					<h:outputLabel for="nombre">Nombre Pelicula: </h:outputLabel>
 					<h:inputText value="#{basicView.nombre}"
@@ -141,7 +142,7 @@
 
 
 		<!-- Boton Para Buscar Elemento Por Id -->
-		<p:commandButton type="button" value="Buscar" icon="fa-search"
+		<p:commandButton type="button" value="Buscar" icon="fa fa-search"
 			onclick="PF('busca').show();" />
 		<p:dialog header="Busca Dialog" widgetVar="busca" minHeight="20">
 			<h:form>

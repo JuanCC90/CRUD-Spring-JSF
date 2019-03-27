@@ -57,7 +57,6 @@ public class PeliculaService {
 		List<PeliculaDTO> peliculas = new ArrayList<>();
 		for (Pelicula p : pelisRepo.findAll()) {
 			if (p.getId() == id) {
-				nuevaPeli.setId(id);
 				pelisRepo.save(nuevaPeli);
 				PeliculaDTO dto = mapper.map(p, PeliculaDTO.class);
 				peliculas.add(dto);

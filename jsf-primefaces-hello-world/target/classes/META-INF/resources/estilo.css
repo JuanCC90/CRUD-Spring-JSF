@@ -15,11 +15,11 @@
 }
 
 body {
-	background-color: red;
+	background-color: AliceBlue;
 }
 
 #botones {
-	width: 50px;
+	width: 95px;
 	margin-left: 50%;
 	
 }
@@ -31,7 +31,32 @@ body {
 }
 
 #footer{
-	position: absolute;
+	position: relative;
 	bottom:0;
 	width:100%;
+	left:400px;
+}
+
+#menu{
+	padding:50;
+	margin:50;
+	box-sizing:border-box;
+	font-size:0;
+
+}
+
+#menu li{
+	display: inline-block;
+	float:left;
+	text-align:center;
+}
+
+#menu li a{
+	font-family:Arial;
+	font-size: 12px;
+	text-decoration: none;
+	float: left;
+	padding: 20px;
+	background-color: DarkTurquoise;
+	color: white;
 }

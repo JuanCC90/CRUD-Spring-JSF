@@ -1,5 +1,9 @@
 package com.codenotfound.primefaces;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import org.springframework.data.annotation.Id;
 
 import lombok.Data;
@@ -20,9 +24,6 @@ public class PeliculaDTO {
 			return this.id;
 		}
 		
-		public void setId(long id) {
-			this.id=id;
-		}
 		
 		public String getNombre() {
 			return this.nombre;

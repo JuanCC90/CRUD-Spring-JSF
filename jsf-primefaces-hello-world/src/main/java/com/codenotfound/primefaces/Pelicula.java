@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.annotation.ManagedBean;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,8 @@ public class Pelicula implements Serializable {
 	
 	//Entorno:
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", updatable=false, nullable=false)
 	private long id;
 	private String nombre;
 	private String anio;
@@ -29,8 +32,7 @@ public class Pelicula implements Serializable {
 	protected Pelicula() {	
 	}
 	
-	public Pelicula(long id, String nombre, String anio, long premios) {
-		this.id=id;
+	public Pelicula(String nombre, String anio, long premios) {
 		this.nombre=nombre;
 		this.anio=anio;
 		this.premios=premios;
@@ -42,9 +44,6 @@ public class Pelicula implements Serializable {
 		return this.id;
 	}
 	
-	public void setId(long id) {
-		this.id=id;
-	}
 	
 	public String getNombre() {
 		return this.nombre;
