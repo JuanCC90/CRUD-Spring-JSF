@@ -8,14 +8,14 @@
 
 	background: url(logo.png) top left no-repeat;
 	width: 100px;
-	height: 100px;
+	height: 150px;
 	margin: 0px;
 	padding: 0px;
 	background-size: 80%;
 }
 
 body {
-	background: rgba(252, 175, 161, 1);
+	background-color: red;
 }
 
 #botones {
@@ -28,4 +28,10 @@ body {
 	width: 1400px;
 	text-align: center;	
 	font-family: arial;
+}
+
+#footer{
+	position: absolute;
+	bottom:0;
+	width:100%;
 }
