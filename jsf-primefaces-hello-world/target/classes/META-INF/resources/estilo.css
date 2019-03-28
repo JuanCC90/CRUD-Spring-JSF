@@ -9,13 +9,12 @@
 	text-align: center;
 }
 
-#imagen {
 
-	background: url(logo.png) top left no-repeat;
-}
 
 body {
 	background-color: AliceBlue;
+	background-image: url(logo.png);
+	background-repeat: repeat-z;
 }
 
 #botones {
@@ -24,19 +23,13 @@ body {
 }
 
 
-#footer{
-	position: relative;
-	bottom:0;
-	width:100%;
-	left:400px;
-}
+
 
 ul{
 	list-style-type:none;
 	margin:0;
-	padding:0;
-	overflow:hidden;
-	background-color:#333;
+	padding:0;	
+	background-color:rgba(226,226,226,1);
 }
 
 li{
@@ -52,11 +45,11 @@ li a{
 }
 
 li a:hover:not(.active){
-	background-color:#111;
+	background-color:white;
 }
 
 .active{
-	background-color:#4CAF50;
+	background-color:blue;
 }
 
 #footer{
@@ -64,9 +57,9 @@ li a:hover:not(.active){
 	left:0;
 	bottom:0;
 	width:100%;
-	background-color:red;
-	color:white;
+	background-color:white;
 	text-align:center;
+	left:50px;
 }
 
 
