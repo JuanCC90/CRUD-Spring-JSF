@@ -24,13 +24,6 @@ body {
 }
 
 
-
-head{
-	max-width:960px;
-	margin:auto;
-	margin-top:55px;
-}
-
 #footer{
 	position: relative;
 	bottom:0;
@@ -38,30 +31,43 @@ head{
 	left:400px;
 }
 
-#menu{
-	height: 100px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:#333;
 }
 
-#menu ul{
-	width: 960px;
-	margin: auto;
+li{
+	float:left;
 }
 
-#menu ul li{
-	line-height:100px;
-	display: inline-block;
-	padding-right:50px;
+li a{
+	display:block;
+	color:white;
+	text-align:center;
+	padding:14px 16px;
+	text-decoraton:none;
 }
 
-#menu ul li a{
-	text-decoration:none;
-	font-weight:bold;
+li a:hover:not(.active){
+	background-color:#111;
 }
 
-#menu ul li a:hover{
-	text-decoration: underline;
+.active{
+	background-color:#4CAF50;
 }
+
+#footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	background-color:red;
+	color:white;
+	text-align:center;
+}
+
+
+
