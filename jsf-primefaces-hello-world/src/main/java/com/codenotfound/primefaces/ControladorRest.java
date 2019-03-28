@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -38,6 +39,10 @@ public class ControladorRest {
 		
 	}
 	
+	/*
+	 @GetMapping("Pelicula/busca/")   //http://localhost:8080/busca?id="+ id +"&nombre="nom"
+	public List<PeliculaDTO> busca(@RequestParam("id") String id, @RequestParam("nombre") String nombre)
+	*/
 	
 	@PutMapping("/Pelicula/put/{id}")	//Metodo para actualizar elemento(Pelicula) por Id
 	public PeliculaDTO actualizarPeli(@RequestBody PeliculaDTO nuevaPeli, @PathVariable Long id){

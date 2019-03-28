@@ -14,7 +14,9 @@
 body {
 	background-color: AliceBlue;
 	background-image: url(logo.png);
-	background-repeat: repeat-z;
+	position:center;
+	background-size:600px 500px;
+	
 }
 
 #botones {

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -94,11 +95,40 @@ public class BasicView implements Serializable{
 	
 	
 	public void buscar() {
+		/*
 		peliculas = new ArrayList<>();
 		rt = new RestTemplate();
 		ResponseEntity<PeliculaDTO> res =  rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
-		peliculas.add(res.getBody());
-	}
+		peliculas.add(res.getBody()); 
+		*/
+		long otroId;
+		rt = new RestTemplate();
+		peliculas = new ArrayList<>();
+		for (Pelicula p : pelisRepo.findAll()) {
+			if(p.getId()==id) {
+				ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
+				peliculas.add(res.getBody());
+			}else {
+				if(p.getNombre().toLowerCase()==nombre.toLowerCase()) {
+					otroId =p.getId();
+					ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
+					peliculas.add(res.getBody());
+				}else {
+					if(p.getAnio()==anio) {
+						otroId = p.getId();
+						ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
+						peliculas.add(res.getBody());
+					}else {
+						if(p.getPremios()==premios) {
+							otroId = p.getId();
+							ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
+							peliculas.add(res.getBody());
+						}//Fin Si
+					}//Fin Si
+				}//Fin Si
+			}//Fin Si
+		}//Fin Para	
+	}//Fin Metodo
 	
 	public List<PeliculaDTO> agregar() {
 		/*

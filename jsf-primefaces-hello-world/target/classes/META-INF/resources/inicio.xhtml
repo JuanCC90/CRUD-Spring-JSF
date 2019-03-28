@@ -50,7 +50,7 @@
 			<!-- Columna Con Opciones Para Actualizar y Borrar -->
 			<p:column headerText="Options">
 
-				<!-- Boton Para Editar Elemento por Id, Nombre, Anio y Premios -->
+				<!-- Boton Para Editar Elemento por Nombre, Anio y Premios -->
 				<h:form>
 					<p:commandButton value="Editar" icon="fa fa-fw fa-edit"
 						update="dialogEdicion"
@@ -144,6 +144,18 @@
 					<h:outputLabel for="id">Id Pelicula: </h:outputLabel>
 					<h:inputText value="#{basicView.id}"
 						label="Ingrese nombre Pelicula" required="true" id="idBusca"></h:inputText>
+						
+					<h:outputLabel for="nombre">Nombre Pelicula: </h:outputLabel>
+					<h:inputText value="#{basicView.nombre}"
+						label="Ingrese nombre Pelicula" required="true" id="nombreBusca"></h:inputText>
+						
+					<h:outputLabel for="anio">Anio Pelicula: </h:outputLabel>
+					<h:inputText value="#{basicView.anio}"
+						label="Ingrese anio Pelicula" required="true" id="anioBusca"></h:inputText>
+						
+					<h:outputLabel for="premios">Premios Pelicula: </h:outputLabel>
+					<h:inputText value="#{basicView.premios}"
+						label="Ingrese premios Pelicula" required="true" id="premiosBusca"></h:inputText>
 
 
 					<p:commandButton actionListener="#{basicView.buscar()}"
