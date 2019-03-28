@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface PeliculaRepository extends CrudRepository<Pelicula, Long> {
 	@Query("select p from Pelicula where p.id like (:id) and p.nombre like :nombre ")
 	List<Pelicula> findByNombre(@Param("id") String id, @Param("nombre") String nombre);
+	
 	List<Pelicula> findByAnio(String anio);
 	Pelicula getById(long id);
 	List<Pelicula> findAll();

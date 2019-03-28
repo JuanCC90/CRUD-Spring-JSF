@@ -101,33 +101,7 @@ public class BasicView implements Serializable{
 		ResponseEntity<PeliculaDTO> res =  rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
 		peliculas.add(res.getBody()); 
 		*/
-		long otroId;
-		rt = new RestTemplate();
-		peliculas = new ArrayList<>();
-		for (Pelicula p : pelisRepo.findAll()) {
-			if(p.getId()==id) {
-				ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+id,PeliculaDTO.class);
-				peliculas.add(res.getBody());
-			}else {
-				if(p.getNombre().toLowerCase()==nombre.toLowerCase()) {
-					otroId =p.getId();
-					ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
-					peliculas.add(res.getBody());
-				}else {
-					if(p.getAnio()==anio) {
-						otroId = p.getId();
-						ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
-						peliculas.add(res.getBody());
-					}else {
-						if(p.getPremios()==premios) {
-							otroId = p.getId();
-							ResponseEntity<PeliculaDTO> res = rt.getForEntity("http://localhost:8080/Pelicula/get/"+otroId,PeliculaDTO.class);
-							peliculas.add(res.getBody());
-						}//Fin Si
-					}//Fin Si
-				}//Fin Si
-			}//Fin Si
-		}//Fin Para	
+		
 	}//Fin Metodo
 	
 	public List<PeliculaDTO> agregar() {
