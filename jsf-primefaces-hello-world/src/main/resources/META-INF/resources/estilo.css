@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+*{
+	margin:0;
+	padding:0;
+}
+
 #table {
 	text-align: center;
 }
@@ -7,11 +12,6 @@
 #imagen {
 
 	background: url(logo.png) top left no-repeat;
-	width: 100px;
-	height: 150px;
-	margin: 0px;
-	padding: 0px;
-	background-size: 80%;
 }
 
 body {
@@ -20,14 +20,15 @@ body {
 
 #botones {
 	width: 95px;
-	margin-left: 50%;
-	
+	margin-left: 50%;	
 }
 
-#titulo{
-	width: 1400px;
-	text-align: center;	
-	font-family: arial;
+
+
+head{
+	max-width:960px;
+	margin:auto;
+	margin-top:55px;
 }
 
 #footer{
@@ -38,25 +39,29 @@ body {
 }
 
 #menu{
-	padding:50;
-	margin:50;
-	box-sizing:border-box;
-	font-size:0;
-
+	height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 
-#menu li{
+#menu ul{
+	width: 960px;
+	margin: auto;
+}
+
+#menu ul li{
+	line-height:100px;
 	display: inline-block;
-	float:left;
-	text-align:center;
+	padding-right:50px;
 }
 
-#menu li a{
-	font-family:Arial;
-	font-size: 12px;
-	text-decoration: none;
-	float: left;
-	padding: 20px;
-	background-color: DarkTurquoise;
-	color: white;
+#menu ul li a{
+	text-decoration:none;
+	font-weight:bold;
+}
+
+#menu ul li a:hover{
+	text-decoration: underline;
 }
