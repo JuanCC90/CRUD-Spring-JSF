@@ -39,10 +39,13 @@ public class ControladorRest {
 		
 	}
 	
-	/*
-	 @GetMapping("Pelicula/busca/")   //http://localhost:8080/busca?id="+ id +"&nombre="nom"
-	public List<PeliculaDTO> busca(@RequestParam("id") String id, @RequestParam("nombre") String nombre)
-	*/
+	
+	 @GetMapping("Pelicula/busca")
+	public PeliculaDTO buscar(@RequestParam("id") long id, @RequestParam("nombre") String nombre, @RequestParam("anio") String anio, @RequestParam("premios") long premios){
+		 PeliculaDTO peliculas = peliServi.mejorBuscar(id, nombre, anio, premios);
+		 return peliculas;
+	 }
+	
 	
 	@PutMapping("/Pelicula/put/{id}")	//Metodo para actualizar elemento(Pelicula) por Id
 	public PeliculaDTO actualizarPeli(@RequestBody PeliculaDTO nuevaPeli, @PathVariable Long id){

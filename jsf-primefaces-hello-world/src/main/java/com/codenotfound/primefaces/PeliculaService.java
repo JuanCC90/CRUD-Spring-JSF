@@ -50,6 +50,14 @@ public class PeliculaService {
 		PeliculaDTO dto = mapper.map(peli, PeliculaDTO.class);
 		return dto;
 	}
+	
+	public PeliculaDTO mejorBuscar(long id, String nombre, String anio, long premios) {
+		ModelMapper mapper = new ModelMapper();
+		List<Pelicula> peli = pelisRepo.findByNombre(id, nombre, anio, premios);
+		PeliculaDTO dto = mapper.map(peli, PeliculaDTO.class);
+		return dto;
+	}
+	
 
 	public PeliculaDTO actualizaPelicula(PeliculaDTO nuevaPeli, long id) {
 		ModelMapper mapper = new ModelMapper();
