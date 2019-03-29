@@ -2,28 +2,17 @@ package com.codenotfound.primefaces;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.common.collect.Lists;
 
 import lombok.Data;
 
@@ -97,8 +86,9 @@ public class BasicView implements Serializable{
 	public void buscar() {
 		peliculas = new ArrayList<>();
 		rt = new RestTemplate();
-		ResponseEntity<PeliculaDTO> res =  rt.getForEntity("http://localhost:8080/Pelicula/busca?id="+id+"&nombre="+nombre+"&anio="+anio+"&premios="+premios, PeliculaDTO.class);
-		peliculas.add(res.getBody()); 
+		ResponseEntity<PeliculaDTO[]> res =  rt.getForEntity("http://localhost:8080/Pelicula/busca?id="+id+"&nombre="+nombre+"&anio="+anio+"&premios="+premios, PeliculaDTO[].class);
+		
+		peliculas.addAll(Lists.newArrayList(res.getBody())); 
 		
 	}//Fin Metodo
 	

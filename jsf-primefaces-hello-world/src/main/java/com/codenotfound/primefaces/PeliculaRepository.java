@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 public interface PeliculaRepository extends CrudRepository<Pelicula, Long> {
-	@Query("select p from Pelicula where p.id like (:id) and p.nombre like (:nombre) and p.anio like (:anio) and p.premios like (:premios) ")
+	@Query("select p from Pelicula p where p.id like (:id) and p.nombre like CONCAT ('%',UPPER(:nombre),'%') and p.anio like CONCAT ('%',:anio,'%') and p.premios like CONCAT ('%',UPPER(:premios), '%')")
 	List<Pelicula> findByNombre(@Param("id") long id, @Param("nombre") String nombre, @Param("anio") String anio, @Param("premios") long premios);
 	
 	
@@ -24,3 +24,5 @@ public interface PeliculaRepository extends CrudRepository<Pelicula, Long> {
 	Pelicula deleteById(long id);
 	
 }
+
+

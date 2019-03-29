@@ -46,16 +46,18 @@ public class PeliculaService {
 	public PeliculaDTO buscar(Long id) {
 		ModelMapper mapper = new ModelMapper();
 		Pelicula peli = pelisRepo.findById(id).get();
-		//pelisRepo.findByNombre(id, nombre)
 		PeliculaDTO dto = mapper.map(peli, PeliculaDTO.class);
 		return dto;
 	}
 	
-	public PeliculaDTO mejorBuscar(long id, String nombre, String anio, long premios) {
+	public List<PeliculaDTO> mejorBuscar(long id, String nombre, String anio, long premios) {
 		ModelMapper mapper = new ModelMapper();
 		List<Pelicula> peli = pelisRepo.findByNombre(id, nombre, anio, premios);
-		PeliculaDTO dto = mapper.map(peli, PeliculaDTO.class);
-		return dto;
+		List<PeliculaDTO> pelis = new ArrayList<>();
+		for(Pelicula p:peli) {
+			pelis.add(mapper.map(p,PeliculaDTO.class));
+		}
+		return pelis;
 	}
 	
 
